@@ -2,10 +2,12 @@
 // NCWH
 
 import React from 'react';
+import { Route, Routes } from "react-router-dom"
 import logo from './logo.svg';
 import './App.css';
 
 import { Cartographer } from './components/Cartographer'
+import { Northridge } from './components/Northridge';
 
 function App() {
   return (
@@ -18,6 +20,9 @@ function App() {
         <span>
           <Cartographer />
         </span>
+        <Routes>
+          <Route path='/' element={<Northridge />} />
+        </Routes>
       </header>
     </div>
   );
