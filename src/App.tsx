@@ -5,6 +5,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import { Cartographer } from './components/Cartographer'
+
 function App() {
   return (
     <div className="App">
@@ -13,6 +15,9 @@ function App() {
         <h1>
           Northridge
         </h1>
+        <span>
+          <Cartographer />
+        </span>
       </header>
     </div>
   );

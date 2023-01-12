@@ -1,7 +1,9 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import cartographerReducer from '../features/cartographer/cartographerSlice';
 
 export const store = configureStore({
   reducer: {
+    cartographer: cartographerReducer,
   },
 });
 
