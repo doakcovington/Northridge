@@ -9,7 +9,7 @@ import './App.css';
 import { Game }  from './components/Game'
 
 import { Cartographer } from './components/Cartographer'
-import { Northridge } from './components/Northridge';
+import { Northridge } from './components/realms/Northridge';
 
 function App() {
   return (
