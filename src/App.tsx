@@ -6,6 +6,8 @@ import { Route, Routes } from "react-router-dom"
 import logo from './logo.svg';
 import './App.css';
 
+import { Game }  from './components/Game'
+
 import { Cartographer } from './components/Cartographer'
 import { Northridge } from './components/Northridge';
 
@@ -18,11 +20,8 @@ function App() {
           Northridge
         </h1>
         <span>
-          <Cartographer />
+          <Game />
         </span>
-        <Routes>
-          <Route path='/' element={<Northridge />} />
-        </Routes>
       </header>
     </div>
   );
