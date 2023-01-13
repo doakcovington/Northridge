@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useAppSelector, useAppDispatch } from '../app/hooks';
 import { selectName, selectStatus, selectSurveyed } from '../features/realms/northridgeSlice';
 import { incrementStatus, changeSurveyed } from '../features/realms/northridgeSlice';
+import { decrementGoblinHealth, selectGoblinHealth } from '../features/npcs/goblinSlice';
+
+import { Goblin } from './npcs/Goblin';
 
 export const Northridge = () => {
   const name = useAppSelector(selectName);
@@ -9,29 +12,26 @@ export const Northridge = () => {
   const surveyed= useAppSelector(selectSurveyed);
   const dispatch = useAppDispatch();
 
-  // const handleSurvey = () => {
-  //   while (status < 100) {
-  //     console.log('here')
-  //     setInterval(() => {
-  //       dispatch(incrementStatus(1))
-  //     }, 100)
-  //   }
-  //   dispatch(changeSurveyed)
-  // }
   const handleSurvey = () => {
       setInterval(() => {
         dispatch(incrementStatus(1))
       }, 1000)
     if (status > 100) {
-      console.log('here')
       dispatch(changeSurveyed())
     }
   }
 
+  const handleAttack = () => {
+    setInterval(() => {
+      dispatch(decrementGoblinHealth(1))
+    }, 1000)
+  }
+
   if (status > 100) {
-    console.log('here')
     dispatch(changeSurveyed())
   }
+
+  const goblinHealth = useAppSelector(selectGoblinHealth)
 
 
   return (
@@ -44,6 +44,12 @@ export const Northridge = () => {
       }
       {surveyed &&
         <h2>Surveyed</h2>
+      }
+      {goblinHealth > 0 &&
+        <div>
+          <Goblin />
+          <button onClick={() => handleAttack()}>Attack</button>
+        </div>
       }
     </div>
   )
